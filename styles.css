@@ -1,198 +1,294 @@
+/* =========================================================
+   GD ARENA — COMPLETE RESPONSIVE STYLES.CSS
+   Desktop + Tablet + Mobile
+   Participants: 4 desktop / 2x2 mobile
+   ========================================================= */
+
 :root {
   --bg: #07111f;
   --panel: #0e1b2d;
   --panel2: #13253d;
   --line: #253a55;
+
   --text: #edf5ff;
   --muted: #8ea4bf;
+
   --primary: #6d5dfc;
   --cyan: #20d5e8;
   --green: #39d98a;
   --red: #ff6678;
-  --yellow: #f5c451
+  --yellow: #f5c451;
 }
 
-* {
-  box-sizing: border-box
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 body {
-  margin: 0;
-  background: radial-gradient(circle at 75% -10%, #213b68 0, #07111f 40%);
+  background:
+    radial-gradient(
+      circle at 75% -10%,
+      #213b68 0,
+      #07111f 40%
+    );
   color: var(--text);
-  font-family: Inter, Segoe UI, Arial, sans-serif
+  font-family: Inter, Segoe UI, Arial, sans-serif;
+  line-height: 1.4;
 }
 
 button,
 select,
-input {
-  font: inherit
+input,
+textarea {
+  font: inherit;
+  max-width: 100%;
 }
+
+button {
+  cursor: pointer;
+}
+
+img,
+video,
+iframe,
+svg {
+  max-width: 100%;
+}
+
+/* =========================================================
+   APP
+   ========================================================= */
 
 .app {
+  width: 100%;
   min-height: 100vh;
+
   display: grid;
-  grid-template-columns: 245px 1fr
+  grid-template-columns: 245px minmax(0, 1fr);
 }
 
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
 .side {
-  background: #06101dE8;
+  width: 245px;
+  min-width: 0;
+
+  background: #06101de8;
   border-right: 1px solid var(--line);
+
   padding: 22px 15px;
+
   display: flex;
-  flex-direction: column
+  flex-direction: column;
 }
 
 .brand {
   font-weight: 900;
   font-size: 22px;
-  margin: 0 0 28px
+  margin: 0 0 28px;
+  white-space: nowrap;
 }
 
 .brand i {
   color: var(--cyan);
-  font-style: normal
+  font-style: normal;
+}
+
+.nav {
+  width: 100%;
 }
 
 .nav button {
   width: 100%;
+
   border: 0;
   background: transparent;
   color: var(--muted);
+
   padding: 12px;
   border-radius: 10px;
+
   text-align: left;
-  margin: 3px 0
+  margin: 3px 0;
+
+  transition: 0.2s ease;
 }
 
 .nav button.active,
 .nav button:hover {
   background: var(--panel2);
-  color: #fff
+  color: #fff;
 }
 
 .ai-note {
   margin-top: auto;
+
   padding: 13px;
+
   border: 1px solid var(--line);
   border-radius: 12px;
+
   background: var(--panel);
+
   font-size: 12px;
   color: var(--muted);
-  line-height: 1.45
+  line-height: 1.45;
 }
 
+/* =========================================================
+   MAIN
+   ========================================================= */
+
 .main {
-  padding: 26px;
-  max-width: 1500px;
   width: 100%;
-  margin: auto
+  max-width: 1500px;
+
+  padding: 26px;
+  margin: auto;
 }
 
 .top {
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 18px
+
+  gap: 15px;
+  margin-bottom: 18px;
 }
 
 .top h1 {
   margin: 0;
-  font-size: 28px
+  font-size: 28px;
 }
 
 .online {
   color: var(--green);
-  font-size: 13px
+  font-size: 13px;
+  white-space: nowrap;
 }
 
+/* =========================================================
+   SCREEN
+   ========================================================= */
+
 .screen {
-  display: none
+  display: none;
+  width: 100%;
+  max-width: 100%;
 }
 
 .screen.active {
-  display: block
+  display: block;
 }
+
+/* =========================================================
+   CARD
+   ========================================================= */
 
 .card {
-  background: #0e1b2deF;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  background: #0e1b2def;
+
   border: 1px solid var(--line);
   border-radius: 16px;
+
   padding: 18px;
-  box-shadow: 0 16px 40px #0003
+
+  box-shadow: 0 16px 40px #0003;
+
+  overflow: hidden;
 }
 
+.card h2,
+.card h3,
+.card p {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   SETUP
+   ========================================================= */
+
 .setup {
+  width: 100%;
   max-width: 950px;
-  margin: 35px auto
+
+  margin: 35px auto;
 }
 
 .setup h2 {
-  margin-top: 0
+  margin-top: 0;
 }
 
 .label {
   display: block;
+
   color: var(--muted);
   font-size: 12px;
-  margin: 16px 0 7px
+
+  margin: 16px 0 7px;
 }
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
 
 .select,
-input {
+input,
+textarea {
   width: 100%;
+  max-width: 100%;
+
   padding: 12px;
+
   border-radius: 10px;
   border: 1px solid var(--line);
+
   background: #091625;
-  color: white
+  color: white;
+
+  outline: none;
 }
 
-.choices {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap
-}
-
-.choice {
-  border: 1px solid var(--line);
-  background: #0a1727;
-  color: #b9cbe0;
-  padding: 10px 14px;
-  border-radius: 10px
-}
-
-.choice.selected {
+input:focus,
+textarea:focus,
+.select:focus {
   border-color: var(--primary);
-  background: #211c52;
-  color: white
 }
 
-.primary {
-  background: var(--primary);
-  color: white;
-  border: 0;
-  padding: 12px 18px;
-  border-radius: 10px;
-  font-weight: 700
-}
-
-.secondary {
-  background: #1a2b43;
-  color: white;
-  border: 0;
-  padding: 12px 18px;
-  border-radius: 10px
-}
-
-.layout {
-  display: grid;
-  grid-template-columns: 1.5fr .7fr;
-  gap: 16px
-}
+/* =========================================================
+   TOPIC SELECT
+   ========================================================= */
 
 #topic {
   width: 100%;
+  max-width: 100%;
+
   padding: 16px 50px 16px 18px;
 
   font-size: 16px;
@@ -200,9 +296,13 @@ input {
   line-height: 1.4;
 
   color: #ffffff;
-  background: linear-gradient(135deg,
+
+  background:
+    linear-gradient(
+      135deg,
       rgba(99, 102, 241, 0.18),
-      rgba(168, 85, 247, 0.12));
+      rgba(168, 85, 247, 0.12)
+    );
 
   border: 1px solid rgba(139, 92, 246, 0.4);
   border-radius: 14px;
@@ -220,291 +320,975 @@ input {
 
   transition: all 0.3s ease;
 
-  /* Custom dropdown arrow */
   background-image:
-    linear-gradient(45deg, transparent 50%, #a78bfa 50%),
-    linear-gradient(135deg, #a78bfa 50%, transparent 50%);
+    linear-gradient(
+      45deg,
+      transparent 50%,
+      #a78bfa 50%
+    ),
+    linear-gradient(
+      135deg,
+      #a78bfa 50%,
+      transparent 50%
+    );
+
   background-position:
     calc(100% - 20px) 50%,
     calc(100% - 14px) 50%;
+
   background-size:
     6px 6px,
     6px 6px;
+
   background-repeat: no-repeat;
 }
 
 #topic:hover {
   border-color: #8b5cf6;
+
   box-shadow:
     0 10px 30px rgba(139, 92, 246, 0.2);
+
   transform: translateY(-1px);
 }
 
 #topic:focus {
   border-color: #a78bfa;
+
   box-shadow:
     0 0 0 3px rgba(139, 92, 246, 0.15),
     0 10px 30px rgba(139, 92, 246, 0.2);
 }
 
-/* Dropdown options */
 #topic option {
   background: #151528;
-  color: #ffffff;
+  color: #fff;
   padding: 12px;
   font-weight: 500;
 }
 
-.meta {
-  color: var(--muted);
-  font-size: 12px
+/* =========================================================
+   CHOICES
+   ========================================================= */
+
+.choices {
+  width: 100%;
+
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.participants {
+.choice {
+  border: 1px solid var(--line);
+  background: #0a1727;
+  color: #b9cbe0;
+
+  padding: 10px 14px;
+
+  border-radius: 10px;
+
+  transition: 0.2s ease;
+}
+
+.choice:hover {
+  border-color: var(--primary);
+}
+
+.choice.selected {
+  border-color: var(--primary);
+  background: #211c52;
+  color: white;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.primary,
+.secondary {
+  border: 0;
+
+  padding: 12px 18px;
+
+  border-radius: 10px;
+
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.secondary {
+  background: #1a2b43;
+  color: white;
+}
+
+.primary:hover,
+.secondary:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+/* =========================================================
+   GD LAYOUT
+   ========================================================= */
+
+.layout {
+  width: 100%;
+  max-width: 100%;
+
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+
+  grid-template-columns:
+    minmax(0, 1.5fr)
+    minmax(280px, 0.7fr);
+
+  gap: 16px;
+}
+
+/* =========================================================
+   META
+   ========================================================= */
+
+.meta {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* =========================================================
+   PARTICIPANTS
+   ========================================================= */
+
+/*
+   Desktop:
+   Alex | Priya | Rahul | Neha
+
+   Tablet/Mobile:
+   Alex  | Priya
+   Rahul | Neha
+*/
+
+.participants {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
   gap: 10px;
-  margin: 17px 0
+
+  margin: 17px 0;
 }
 
 .person {
+  width: 100%;
+  min-width: 0;
+
   background: #091625;
+
   border: 1px solid var(--line);
   border-radius: 12px;
+
   padding: 12px;
-  position: relative
+
+  position: relative;
+
+  overflow: hidden;
 }
 
 .person.active {
   border-color: var(--cyan);
-  box-shadow: 0 0 0 1px #20d5e833
+
+  box-shadow:
+    0 0 0 1px #20d5e833;
 }
 
 .person .dot {
   position: absolute;
+
   right: 10px;
   top: 12px;
+
   width: 8px;
   height: 8px;
+
   border-radius: 50%;
-  background: #53657c
+
+  background: #53657c;
 }
 
 .person.active .dot {
   background: var(--green);
-  box-shadow: 0 0 10px var(--green)
+
+  box-shadow:
+    0 0 10px var(--green);
 }
 
 .role {
   font-size: 11px;
   color: var(--muted);
-  margin-top: 4px
+  margin-top: 4px;
 }
 
 .voice {
   font-size: 11px;
   color: #8eefff;
-  margin-top: 8px
+  margin-top: 8px;
 }
 
+/* =========================================================
+   TRANSCRIPT
+   ========================================================= */
+
 .transcript {
+  width: 100%;
+  max-width: 100%;
+
   height: 270px;
-  overflow: auto;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
   background: #07111d;
+
   border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 13px
+
+  padding: 13px;
 }
 
 .line {
   margin: 0 0 12px;
+
   line-height: 1.45;
-  font-size: 13px
+  font-size: 13px;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .line b {
-  color: #87effa
+  color: #87effa;
 }
 
 .line.me b {
-  color: #b8aaff
+  color: #b8aaff;
 }
 
+/* =========================================================
+   CONTROLS
+   ========================================================= */
+
 .controls {
+  width: 100%;
+
   display: flex;
   align-items: center;
+
+  flex-wrap: wrap;
+
   gap: 10px;
-  margin-top: 14px
+
+  margin-top: 14px;
 }
 
 .mic {
   width: 58px;
   height: 58px;
+
+  flex: 0 0 auto;
+
   border-radius: 50%;
+
   background: var(--primary);
+
   border: 0;
+
   color: white;
-  font-size: 23px
+  font-size: 23px;
 }
 
 .mic.live {
   background: var(--red);
-  animation: pulse 1.2s infinite
+
+  animation: pulse 1.2s infinite;
 }
 
 @keyframes pulse {
   50% {
-    box-shadow: 0 0 0 10px #ff66781c
+    box-shadow:
+      0 0 0 10px #ff66781c;
   }
 }
 
+/* =========================================================
+   SCORE
+   ========================================================= */
+
 .scoreRing {
   text-align: center;
+
   font-size: 48px;
   font-weight: 900;
+
   color: var(--cyan);
-  padding: 5px
+
+  padding: 5px;
 }
 
 .scoreGrid {
+  width: 100%;
+
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 9px
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 9px;
 }
 
 .metric {
+  min-width: 0;
+
   background: #091625;
+
   border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 11px
+
+  padding: 11px;
+
+  overflow: hidden;
 }
 
 .metric b {
-  font-size: 19px
+  font-size: 19px;
 }
 
 .metric span {
   display: block;
+
   color: var(--muted);
   font-size: 10px;
-  margin-top: 3px
+
+  margin-top: 3px;
+
+  overflow-wrap: anywhere;
 }
 
 .meter {
+  width: 100%;
   height: 5px;
+
   background: #22344d;
+
   border-radius: 5px;
+
   overflow: hidden;
-  margin-top: 8px
+
+  margin-top: 8px;
 }
 
 .meter i {
   display: block;
+
   height: 100%;
-  background: linear-gradient(90deg, var(--primary), var(--cyan))
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--primary),
+      var(--cyan)
+    );
 }
 
+/* =========================================================
+   COACH
+   ========================================================= */
+
 .coach {
+  width: 100%;
+
   margin-top: 13px;
+
   padding: 12px;
+
   border-radius: 11px;
+
   background: #10243b;
+
   font-size: 12px;
-  line-height: 1.5
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
 }
+
+/* =========================================================
+   TIMER
+   ========================================================= */
 
 .timer {
   font-size: 22px;
-  font-weight: 800
+  font-weight: 800;
 }
 
+/* =========================================================
+   REPORT
+   ========================================================= */
+
 .reportGrid {
+  width: 100%;
+
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 10px;
 }
 
 .evidence {
+  width: 100%;
+
   margin-top: 15px;
+
   padding: 13px;
+
   background: #091625;
+
   border: 1px solid var(--line);
-  border-radius: 11px
+  border-radius: 11px;
+
+  overflow-wrap: anywhere;
 }
 
 .evidence .tag {
   color: var(--green);
-  font-size: 11px
+  font-size: 11px;
 }
 
 .quote {
   margin-top: 7px;
+
   color: #d6e4f4;
+
   border-left: 3px solid var(--primary);
-  padding-left: 10px
+
+  padding-left: 10px;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
+/* =========================================================
+   HISTORY
+   ========================================================= */
+
 .history {
+  width: 100%;
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
 }
 
 .session {
+  width: 100%;
+  min-width: 0;
+
   padding: 15px;
+
   background: #091625;
+
   border: 1px solid var(--line);
-  border-radius: 12px
+  border-radius: 12px;
+
+  overflow: hidden;
 }
 
 .session b {
   font-size: 22px;
-  color: var(--cyan)
+  color: var(--cyan);
 }
+
+/* =========================================================
+   TOAST
+   ========================================================= */
 
 .toast {
   position: fixed;
+
   right: 22px;
   bottom: 22px;
+
+  max-width:
+    min(400px, calc(100vw - 30px));
+
   background: #182c46;
+
   border: 1px solid var(--line);
+
   padding: 12px 16px;
+
   border-radius: 10px;
+
   display: none;
-  z-index: 10
+
+  z-index: 1000;
+
+  overflow-wrap: anywhere;
 }
 
-@media(max-width:950px) {
+/* =========================================================
+   LARGE TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
   .app {
-    grid-template-columns: 1fr
+    grid-template-columns:
+      210px minmax(0, 1fr);
   }
 
   .side {
-    display: none
-  }
-
-  .layout {
-    grid-template-columns: 1fr
-  }
-
-  .participants {
-    grid-template-columns: 1fr 1fr
-  }
-
-  .reportGrid {
-    grid-template-columns: 1fr 1fr
+    width: 210px;
   }
 
   .main {
-    padding: 15px
+    padding: 20px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* 2 x 2 */
+  .participants {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .reportGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .history {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
 }
 
-@media(max-width:600px) {
+/* =========================================================
+   TABLET
+   ========================================================= */
 
-  .participants,
-  .reportGrid,
+@media (max-width: 850px) {
+
+  .app {
+    display: block;
+  }
+
+  .side {
+    display: none;
+  }
+
+  .main {
+    width: 100%;
+    padding: 18px;
+  }
+
+  .top {
+    align-items: flex-start;
+  }
+
+  .top h1 {
+    font-size: 24px;
+  }
+
+  .card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .setup {
+    margin: 20px auto;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Still 2 x 2 */
+  .participants {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .reportGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
   .history {
-    grid-template-columns: 1fr
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .main {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .top {
+    width: 100%;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 6px;
+
+    margin-bottom: 14px;
+  }
+
+  .top h1 {
+    font-size: 21px;
+  }
+
+  .online {
+    font-size: 12px;
+  }
+
+  .card {
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 13px;
+  }
+
+  .setup {
+    width: 100%;
+    margin: 12px auto;
+  }
+
+  .setup h2 {
+    font-size: 20px;
+  }
+
+  .label {
+    margin-top: 13px;
+  }
+
+  /* Topic */
+  #topic {
+    font-size: 14px;
+
+    padding:
+      13px 42px 13px 14px;
+
+    background-position:
+      calc(100% - 17px) 50%,
+      calc(100% - 11px) 50%;
+  }
+
+  /* Setup choices */
+  .choices {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 7px;
+  }
+
+  .choice {
+    width: 100%;
+
+    padding: 10px 8px;
+
+    font-size: 12px;
+
+    text-align: center;
+  }
+
+  .primary,
+  .secondary {
+    max-width: 100%;
+
+    padding: 11px 14px;
+
+    font-size: 13px;
+  }
+
+  /* =========================================
+     PARTICIPANTS — 2 COLUMNS ON MOBILE
+     ========================================= */
+
+  .participants {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+
+    margin: 14px 0;
+  }
+
+  .person {
+    width: 100%;
+    min-width: 0;
+
+    padding: 10px;
+
+    border-radius: 11px;
+  }
+
+  .person .dot {
+    right: 8px;
+    top: 10px;
+  }
+
+  .person .name {
+    font-size: 14px;
+  }
+
+  .role {
+    font-size: 9px;
+  }
+
+  .voice {
+    font-size: 9px;
+  }
+
+  /* Transcript */
+  .transcript {
+    height: 230px;
+
+    padding: 11px;
+
+    font-size: 12px;
+  }
+
+  /* Controls */
+  .controls {
+    gap: 8px;
+  }
+
+  .mic {
+    width: 52px;
+    height: 52px;
+
+    font-size: 20px;
+  }
+
+  .timer {
+    font-size: 19px;
+  }
+
+  /* Score */
+  .scoreRing {
+    font-size: 40px;
+  }
+
+  .scoreGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 7px;
+  }
+
+  .metric {
+    padding: 9px;
+  }
+
+  .metric b {
+    font-size: 17px;
+  }
+
+  /* Report */
+  .reportGrid {
+    grid-template-columns: 1fr;
+  }
+
+  /* History */
+  .history {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence {
+    padding: 11px;
+  }
+
+  .quote {
+    font-size: 12px;
+  }
+
+  /* Toast */
+  .toast {
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+
+    max-width: none;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .main {
+    padding: 9px;
+  }
+
+  .card {
+    padding: 11px;
+    border-radius: 11px;
+  }
+
+  .top h1 {
+    font-size: 19px;
+  }
+
+  .setup h2 {
+    font-size: 18px;
+  }
+
+  #topic {
+    font-size: 13px;
+
+    padding:
+      12px 38px 12px 12px;
+  }
+
+  /* Keep participants 2 x 2 */
+  .participants {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 6px;
+  }
+
+  .person {
+    padding: 9px;
+  }
+
+  .person .name {
+    font-size: 13px;
+  }
+
+  .role {
+    font-size: 8px;
+  }
+
+  .voice {
+    font-size: 8px;
+  }
+
+  /* Setup choices can become one column */
+  .choices {
+    grid-template-columns: 1fr;
+  }
+
+  .scoreGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .transcript {
+    height: 210px;
+  }
+
+  .controls {
+    width: 100%;
+  }
+
+  .primary,
+  .secondary {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 320px) {
+
+  .main {
+    padding: 7px;
+  }
+
+  .card {
+    padding: 9px;
+  }
+
+  .top h1 {
+    font-size: 17px;
+  }
+
+  .scoreRing {
+    font-size: 34px;
+  }
+
+  .transcript {
+    height: 190px;
+  }
+
+  .line {
+    font-size: 12px;
+  }
+
+  .metric b {
+    font-size: 16px;
+  }
+
+  /* Participants remain 2 columns */
+  .participants {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 5px;
+  }
+
+  .person {
+    padding: 8px;
+  }
+
+  .person .name {
+    font-size: 12px;
+  }
+
+  .role,
+  .voice {
+    font-size: 7px;
   }
 }

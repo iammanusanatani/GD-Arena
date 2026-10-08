@@ -27,7 +27,7 @@
           <h1 id="title">GD Arena</h1>
           <div class="meta">AI-powered voice-first group discussion practice</div>
         </div>
-        <div class="online">● System Ready</div>
+        <div class="online" style="display: none;">● System Ready</div>
       </div>
 
       <section id="setup" class="screen active">
@@ -35,11 +35,36 @@
           <h2>Create your GD room</h2>
           <div class="meta">Configure a realistic discussion before entering the arena.</div>
           <label class="label">Choose topic</label>
-          <select id="topic">
+          <select id="topic" class="select">
+
+            <!-- Popular Topics -->
+            <option>Will AI create more jobs than it destroys?</option>
+            <option>Should social media platforms be responsible for fake news?</option>
+            <option>Is online education better than classroom education?</option>
+            <option>Should students be allowed to use AI tools for assignments?</option>
+            <option>Does technology make people more productive or more distracted?</option>
+            <option>Should college attendance be compulsory?</option>
+            <option>Is work from home better than working from an office?</option>
+            <option>Should companies hire based on skills rather than degrees?</option>
+            <option>Can AI replace teachers in the future?</option>
+            <option>Is social media helping or harming young people?</option>
+
+            <!-- More Unique Topics -->
+            <option>Should AI-generated content be labelled?</option>
+            <option>Will coding still be an important skill in 2035?</option>
+            <option>Can India become a completely cashless economy?</option>
+            <option>Should students get a four-day college week?</option>
+            <option>Is failure necessary for success?</option>
+            <option>Should exams be replaced by continuous assessment?</option>
+            <option>Can technology solve climate change?</option>
+            <option>Is privacy more important than convenience?</option>
+
+            <!-- Existing Topics -->
             <option>Will Artificial Intelligence create more jobs than it replaces?</option>
             <option>Is social media a benefit or a threat to students?</option>
             <option>Should work-from-home become the default?</option>
             <option>Is technology making students more productive?</option>
+
           </select>
           <label class="label">Custom topic (optional)</label><input id="custom" placeholder="Enter your own GD topic">
           <label class="label">AI panel size</label>
@@ -48,8 +73,8 @@
           </div>
           <label class="label">GD format</label>
           <div class="choices" id="formats"><button class="choice selected">Normal</button><button
-              class="choice">Case-based</button><button class="choice">Abstract</button><button
-              class="choice">Controversial</button><button class="choice">Fishbowl</button></div>
+              class="choice">Case-based</button><button class="choice">Conceptual</button><button class="choice">Opinion
+              Based</button><button class="choice">Debate Style</button></div>
           <label class="label">Language</label>
           <div class="choices" id="langs"><button class="choice selected">English</button><button
               class="choice">Hinglish</button></div>
@@ -168,4 +193,5 @@
   <div class="toast" id="toast"></div>
 </body>
 <script src="app.js"></script>
+
 </html>
