@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GD Arena — Demo Prototype</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="app">
+    <aside class="side">
+      <div class="brand">GD <i>ARENA</i></div>
+      <div class="nav">
+        <button class="active" onclick="show('setup',this)">🎙️ Practice GD</button>
+        <button onclick="show('history',this)">📈 Progress</button>
+        <button onclick="show('about',this)">ℹ️ About</button>
+      </div>
+      <div class="ai-note"><b style="color:white">🤖 AI Transparency</b><br>All other participants are AI-generated.
+        Their voices, personalities and responses are simulated for practice.</div>
+    </aside>
+
+    <main class="main">
+      <div class="top">
+        <div>
+          <h1 id="title">GD Arena</h1>
+          <div class="meta">AI-powered voice-first group discussion practice</div>
+        </div>
+        <div class="online">● System Ready</div>
+      </div>
+
+      <section id="setup" class="screen active">
+        <div class="card setup">
+          <h2>Create your GD room</h2>
+          <div class="meta">Configure a realistic discussion before entering the arena.</div>
+          <label class="label">Choose topic</label>
+          <select id="topic">
+            <option>Will Artificial Intelligence create more jobs than it replaces?</option>
+            <option>Is social media a benefit or a threat to students?</option>
+            <option>Should work-from-home become the default?</option>
+            <option>Is technology making students more productive?</option>
+          </select>
+          <label class="label">Custom topic (optional)</label><input id="custom" placeholder="Enter your own GD topic">
+          <label class="label">AI panel size</label>
+          <div class="choices" id="sizes"><button class="choice" data-size="3">3 AI</button><button
+              class="choice selected" data-size="4">4 AI</button><button class="choice" data-size="5">5 AI</button>
+          </div>
+          <label class="label">GD format</label>
+          <div class="choices" id="formats"><button class="choice selected">Normal</button><button
+              class="choice">Case-based</button><button class="choice">Abstract</button><button
+              class="choice">Controversial</button><button class="choice">Fishbowl</button></div>
+          <label class="label">Language</label>
+          <div class="choices" id="langs"><button class="choice selected">English</button><button
+              class="choice">Hinglish</button></div>
+          <div style="display:flex;justify-content:flex-end;margin-top:22px"><button class="primary"
+              onclick="startGD()">Enter GD Arena →</button></div>
+        </div>
+      </section>
+
+      <section id="live" class="screen">
+        <div class="layout">
+          <div class="card">
+            <div class="meta">LIVE GROUP DISCUSSION</div>
+            <div class="topic" id="liveTopic"></div>
+            <div class="meta">AI participants + moderator • <span id="formatText">Normal</span> • <span
+                id="langText">English</span></div>
+            <div class="participants" id="participants"></div>
+            <div class="transcript" id="transcript">
+              <p class="line"><b>Moderator:</b> Welcome everyone. You have 10 minutes. Please give concise points,
+                listen to others and build on the discussion.</p>
+            </div>
+            <div class="controls"><button class="mic" id="mic" onclick="toggleMic()">🎙</button><button class="primary"
+                id="speakBtn" onclick="toggleMic()">Start Speaking</button><button class="secondary"
+                onclick="nextAI()">AI Response</button><button class="secondary" onclick="endGD()">End GD</button></div>
+            <div class="meta" style="margin-top:10px">🎙️ Voice input • Live captions • AI-to-AI discussion •
+              Interruptions supported in demo mode</div>
+          </div>
+          <div>
+            <div class="card">
+              <div class="meta">SESSION TIMER</div>
+              <div class="timer" id="timer">10:00</div>
+              <div class="meter"><i id="timebar" style="width:100%"></i></div>
+              <div class="coach"><b>Silent Nudge</b><br><span id="nudge">You are ready. Make your opening point.</span>
+              </div>
+            </div>
+            <div class="card" style="margin-top:16px">
+              <div class="meta">LIVE PERFORMANCE</div>
+              <div class="scoreRing" id="overall">78<span style="font-size:15px">/100</span></div>
+              <div class="scoreGrid">
+                <div class="metric"><b id="m1">82</b><span>Communication</span></div>
+                <div class="metric"><b id="m2">76</b><span>Relevance</span></div>
+                <div class="metric"><b id="m3">74</b><span>Confidence</span></div>
+                <div class="metric"><b id="m4">81</b><span>Participation</span></div>
+              </div>
+              <div class="coach"><b>AI Coach</b><br><span id="coach">Try supporting your point with a concrete example
+                  and build on another participant's idea.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="report" class="screen">
+        <div class="card">
+          <div class="meta">GD COMPLETE</div>
+          <h2>Performance Report</h2>
+          <div class="topic" id="reportTopic"></div>
+          <div class="scoreRing" id="finalScore">84<span style="font-size:15px">/100</span></div>
+          <div class="reportGrid">
+            <div class="metric"><b>86</b><span>Communication</span></div>
+            <div class="metric"><b>81</b><span>Quality of Ideas</span></div>
+            <div class="metric"><b>74</b><span>Listening</span></div>
+            <div class="metric"><b>88</b><span>Building on Others</span></div>
+            <div class="metric"><b>69</b><span>Interruptions</span></div>
+            <div class="metric"><b>91</b><span>Opening</span></div>
+            <div class="metric"><b>76</b><span>Closing</span></div>
+            <div class="metric"><b>82</b><span>Participation</span></div>
+          </div>
+          <div class="evidence"><span class="tag">✓ STRONG — Building on Others</span>
+            <div>You connected your argument with another participant instead of starting an unrelated point.</div>
+            <div class="quote">“I agree with Priya's point about automation, and I'd like to add that education will
+              determine how people transition.”</div>
+          </div>
+          <div class="evidence"><span class="tag" style="color:var(--yellow)">△ IMPROVE — Handling Interruptions</span>
+            <div>You interrupted twice before the other speaker completed the argument.</div>
+            <div class="quote">“But that's not the main issue…”</div>
+          </div>
+          <div class="evidence"><span class="tag" style="color:#8eefff">💡 MISSED OPENING</span>
+            <div>At 04:18, you could have challenged the assumption that new jobs automatically become accessible to
+              displaced workers.</div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:18px"><button class="primary" onclick="show('setup')">Practice
+              Again</button><button class="secondary" onclick="show('history')">View Progress</button></div>
+        </div>
+      </section>
+
+      <section id="history" class="screen">
+        <div class="card">
+          <h2>Your Progress</h2>
+          <div class="meta">Track habits and strengths across practice sessions.</div>
+          <div class="history" style="margin-top:18px">
+            <div class="session">Session 1<br><b>62</b>/100<div class="meta">Needs confidence</div>
+            </div>
+            <div class="session">Session 2<br><b>71</b>/100<div class="meta">Better relevance</div>
+            </div>
+            <div class="session">Session 3<br><b>84</b>/100<div class="meta">Strong participation</div>
+            </div>
+          </div>
+          <div class="coach" style="margin-top:15px"><b>AI Progress Insight:</b> Your participation has improved. Your
+            next focus should be listening and handling interruptions.</div>
+        </div>
+      </section>
+
+      <section id="about" class="screen">
+        <div class="card">
+          <h2>Why GD Arena?</h2>
+          <p class="meta" style="line-height:1.8">GD Arena gives students a realistic group discussion room without
+            requiring 6–8 people. AI participants have distinct personalities, respond to each other, and provide
+            evidence-based feedback after the session.</p>
+          <h3>Safety & transparency</h3>
+          <p class="meta">The student is always informed that the other participants are AI. Microphone denial,
+            connection failure and AI failure should fall back to typed responses/demo mode rather than breaking the
+            session.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+</body>
+<script src="app.js"></script>
+</html>
